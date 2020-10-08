@@ -27,7 +27,7 @@ void loop() {
     name_servo.write(servo_position);
     Serial.print("grader: ");
     Serial.println(servo_position); 
-    Serial.print("avstånd:");
+    Serial.print("avstånd: ");
     Serial.println(sonar.ping_cm());
     delay(50);
   }
