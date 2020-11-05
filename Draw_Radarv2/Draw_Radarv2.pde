@@ -46,7 +46,7 @@ void serialEvent (Serial myPort) {                                              
       ang= data.substring(0, index1);                                                 
       distance= data.substring(index1+1, data.length());                            
       
-      angle = int(ang);
+      angle = 180-int(ang);
       dist = int(distance);
       System.out.println(angle);
 }
@@ -109,7 +109,7 @@ void drawObject() {
     float x=-pixleDist*cos(radians(angle));
     float y=-pixleDist*sin(radians(angle));
     
-    if(dist<=200)                                                  // limiting the range to 40 cms
+    if(dist<=200)                                                  // limiting the range to 200 cms
     {                               
        //line(0,0,pixleDist,0);  
        line(-x,y,-x+(pd*cos(radians(angle))),y-(pd*sin(radians(angle))));
@@ -148,3 +148,4 @@ void drawText()
     popMatrix();  
   
 }
+
