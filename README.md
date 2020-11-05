@@ -5,7 +5,7 @@ I will make a radar with an Arduino uno, HY-srf05 ultrasonic sensor and a servo 
 - Control that you use the correct usb port, the preset in the code is COM5 (You can change that to your preference)
 - Send the C++ code from radar v2 to the Arduino
 - Start the Processing code in Processing 3
-## Softwere
+## Software
 - Processing 3 download link: https://processing.org/download/
 - Visual studio code  download link:https://code.visualstudio.com/
 ## Parts used
