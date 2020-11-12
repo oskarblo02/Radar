@@ -23,7 +23,7 @@ void setup() {
 
 void loop()
 {
-    for(int i=0;i<=180;i++){            // rotates the servo motor from 15 to 165 degrees
+    for(int i=0;i<=180;i++){            // rotates the servo motor from 0 to 180 degrees
     servo.write(i);
     delay(10);
     distance = sonar.ping_cm();
