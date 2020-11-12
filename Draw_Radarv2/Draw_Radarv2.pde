@@ -12,7 +12,7 @@ void setup() {
   
    size (1200, 700); // screen size in pixels
    
-   myPort = new Serial(this,"COM5", 9600);        // starts the serial communication with usb port com5
+   myPort = new Serial(this,"COM5", 9600);        // starts the serial communication with usb port COM5
    myPort.bufferUntil('.');    // reads the data from the serial port up to the character '.' before calling serialEvent
    
   background(0);
@@ -30,10 +30,10 @@ void draw() {
       rect(0,height*0.93,width,height);                   // so that the text having angle and distance doesnt blur out
       
       
-      drawRadar(); 
-      drawLine();
-      drawObject();
-      drawText();
+      drawRadar(); // draws the radar interface
+      drawLine(); // draws the moving line 
+      drawObject(); // draws the moveing line read when located an object
+      drawText(); // writes the text on the radar interface
 }
 
 
@@ -51,7 +51,7 @@ void serialEvent (Serial myPort) {                                              
       System.out.println(angle);
 }
 
-void drawRadar()
+void drawRadar() 
 {
     pushMatrix();
     noFill();
@@ -72,8 +72,7 @@ void drawRadar()
     line(0,0,(-width/2)*cos(radians(90)),(-width/2)*sin(radians(90)));
     line(0,0,(-width/2)*cos(radians(120)),(-width/2)*sin(radians(120)));
     line(0,0,(-width/2)*cos(radians(150)),(-width/2)*sin(radians(150)));
-    
-    
+
 
     popMatrix();
 }
@@ -148,4 +147,3 @@ void drawText()
     popMatrix();  
   
 }
-
