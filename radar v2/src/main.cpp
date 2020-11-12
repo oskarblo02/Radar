@@ -8,9 +8,9 @@ const int echoPin=9;
 long duration;
 int distance;
 
-Servo s1;
+Servo servo; // names the servo library to servo
 
-NewPing sonar (10, 11, 500); // 10: trig_pin 11: echo_pin 500: distance_cm
+NewPing sonar (10, 11, 500); //  trig_pin:10  echo_pin:11  distance_cm:500cm and names the NewPing library to sonar
 
 void setup() {
   
@@ -18,24 +18,24 @@ void setup() {
   pinMode(trigPin,OUTPUT);
   pinMode(echoPin,INPUT);
 
-  s1.attach(9); // servo to pin9 
+  servo.attach(9); // servo to pin9 
 }
 
 void loop()
 {
     for(int i=0;i<=180;i++){            // rotates the servo motor from 15 to 165 degrees
-    s1.write(i);
+    servo.write(i);
     delay(10);
     distance = sonar.ping_cm();
 
-    Serial.print(i);                      // Sends the current degree into the Serial Port
-    Serial.print(",");                   // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
-    Serial.print(distance);                // Sends the distance value into the Serial Port
-    Serial.print(".");                   // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
+    Serial.print(i);                      // sends the current degree into the Serial Port
+    Serial.print(",");                   // sends addition character right next to the previous value needed later in the Processing IDE for indexing
+    Serial.print(distance);                // sends the distance value into the Serial Port
+    Serial.print(".");                   // sends addition character right next to the previous value needed later in the Processing IDE for indexing
       }
 
     for(int i=180;i>0;i--){  
-    s1.write(i);
+    servo.write(i);
     delay(10);
     distance = sonar.ping_cm();
     Serial.print(i);
@@ -50,14 +50,14 @@ int calDist()
 {
    digitalWrite(trigPin, LOW);
    delayMicroseconds(2);
-                                                                // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
+                                                               
+  digitalWrite(trigPin, HIGH);  // sets the trigPin on HIGH state for 10 micro seconds
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW); 
-                                                              // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-                                                              // Calculating the distance
-  distance= duration*0.034/2;                                // Range : 2cm to 400 cm
+                                                              
+  duration = pulseIn(echoPin, HIGH);   // reads the echoPin, returns the sound wave travel time in microseconds
+                                                             
+  distance= duration*0.034/2;  // calculating the distance; range = 2cm to 500 cm
 
   return distance;
 }
