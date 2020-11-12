@@ -3,7 +3,7 @@
 #include <NewPing.h>
 
 const int trigPin=10;
-const int echoPin=9;
+const int echoPin=11;
 
 long duration;
 int distance;
