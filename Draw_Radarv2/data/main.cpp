@@ -1,34 +1,63 @@
 #include <Arduino.h>
-#include <NewPing.h>
 #include <Servo.h>
+#include <NewPing.h>
 
-Servo servo;
+const int trigPin=10;
+const int echoPin=9;
 
-NewPing sonar (10, 11, 500); // 10: trig_pin 11: echo_pin 500: distance_cm
+long duration;
+int distance;
 
-int servo_position = 0;
+Servo servo; // names the servo library to servo
+
+NewPing sonar (10, 11, 500); //  trig_pin:10  echo_pin:11  distance_cm:500cm and names the NewPing library to sonar
 
 void setup() {
+  
   Serial.begin(9600);
-  servo.attach (9);
-  delay(50);
+  pinMode(trigPin,OUTPUT);
+  pinMode(echoPin,INPUT);
+
+  servo.attach(9); // servo to pin9 
 }
 
-void loop() {
-    for (servo_position =0; servo_position <=180; servo_position +=2){
-    servo.write(servo_position);
-    Serial.print("grader: ");
-    Serial.println(servo_position); 
-    Serial.print("avstånd: ");
-    Serial.println(sonar.ping_cm());
-    delay(50);
-  }
-  for (servo_position =180; servo_position >=0; servo_position -=2){
-    servo.write(servo_position);
-    Serial.print("grader: ");
-    Serial.println(servo_position); 
-    Serial.print("avstånd:");
-    Serial.println(sonar.ping_cm());
-    delay(50);
-  }
+void loop()
+{
+    for(int i=0;i<=180;i++){            // rotates the servo motor from 15 to 165 degrees
+    servo.write(i);
+    delay(10);
+    distance = sonar.ping_cm();
+
+    Serial.print(i);                      // sends the current degree into the Serial Port
+    Serial.print(",");                   // sends addition character right next to the previous value needed later in the Processing IDE for indexing
+    Serial.print(distance);                // sends the distance value into the Serial Port
+    Serial.print(".");                   // sends addition character right next to the previous value needed later in the Processing IDE for indexing
+      }
+
+    for(int i=180;i>0;i--){  
+    servo.write(i);
+    delay(10);
+    distance = sonar.ping_cm();
+    Serial.print(i);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
+    }
+
+}
+
+int calDist()
+{
+   digitalWrite(trigPin, LOW);
+   delayMicroseconds(2);
+                                                               
+  digitalWrite(trigPin, HIGH);  // sets the trigPin on HIGH state for 10 micro seconds
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW); 
+                                                              
+  duration = pulseIn(echoPin, HIGH);   // reads the echoPin, returns the sound wave travel time in microseconds
+                                                             
+  distance= duration*0.034/2;  // calculating the distance; range = 2cm to 400 cm
+
+  return distance;
 }
