@@ -57,7 +57,7 @@ int calDist()
                                                               
   duration = pulseIn(echoPin, HIGH);   // reads the echoPin, returns the sound wave travel time in microseconds
                                                              
-  distance= duration*0.034/2;  // calculating the distance; range = 2cm to 400 cm
+  distance= duration*0.034/2;  // calculating the distance; range = 2cm to 500 cm
 
   return distance;
 }
