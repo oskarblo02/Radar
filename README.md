@@ -1,6 +1,9 @@
 # Radar
 I will make a radar with an Arduino, ultrasonic sensor and a servo motor. The ultrasonic sensor will be attached on the servo and register the length to an boject for each degree the servo turns and draw it on the screen with [Processing 3](https://processing.org/download/). 
 
+<img src="Draw_Radarv2/Skärmbild%202020-11-24%20093200.png" width=400> <img src="Draw_Radarv2/20201124_093821.jpg" width=320>
+
+
 ## How to Start
 - radar v2 - src - main.cpp
   - This is the code you will run on the arduino ant this will make the radar work
