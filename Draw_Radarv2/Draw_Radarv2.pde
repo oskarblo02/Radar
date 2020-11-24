@@ -14,7 +14,7 @@ void setup() {
    
    myPort = new Serial(this,"COM5", 9600);        // starts the serial communication with usb port COM5
    myPort.bufferUntil('.');    // reads the data from the serial port up to the character '.' before calling serialEvent
-   
+
   background(0);
 }
 
@@ -108,7 +108,7 @@ void drawObject() {
     float x=-pixleDist*cos(radians(angle));
     float y=-pixleDist*sin(radians(angle));
     
-    if(dist<=200)                                                  // limiting the range to 200 cms
+    if(dist<=200)                                                  // limiting the range to 200 cm
     {                               
        //line(0,0,pixleDist,0);  
        line(-x,y,-x+(pd*cos(radians(angle))),y-(pd*sin(radians(angle))));
