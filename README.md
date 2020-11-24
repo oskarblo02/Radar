@@ -11,6 +11,10 @@ I will make a radar with an Arduino, ultrasonic sensor and a servo motor. The ul
 - In Draw_Radarv2 - Draw_radarv2.pde
   - Put your prefered usb-port here (The preset is COM5): `myPort = new Serial(this,"COM5", 9600);`
   - Change the total distance the radar registers, the shorter the better resulution on where the object is (The preset is 200cm): `if(dist<=200)`
+- In radar v2 - src - main.cpp
+  - Edit the pin number where you put the Trigger connection on your Arduino to your pin (The preset is pin 10): `const int trigPin=10;`
+  - Edit the pin number where you put the Echo connection on your Arduino to your pin (The preset is pin 11): `const int echoPin=11;`
+  - Edit the pin number where you put the Servo pin on your Arduino to your pin (The preset is pin 9): `servo.attach(9);`
   
 ### Software
 - [Platform.io](https://platformio.org/install/ide?install=vscode)
