@@ -1,7 +1,8 @@
 # Radar
-I will make a radar with an Arduino, ultrasonic sensor and a servo motor. The ultrasonic sensor will be attached on the servo and register the length to an boject for each degree the servo turns and draw it on the screen with [Processing 3](https://processing.org/download/). 
+This is a radar made with an Arduino, ultrasonic sensor and a servo motor. The ultrasonic sensor will be attached on the servo and register the length to an object for each degree the servo turns and draw it on the screen with [Processing 3](https://processing.org/download/). 
 
-<img src="Draw_Radarv2/Skärmbild%202020-11-24%20093200.png" width=400> <img src="Draw_Radarv2/20201124_093821.jpg" width=320>
+<img src="Draw_Radarv2/Skärmbild%202020-11-24%20093200.png" width=400> <img src="Draw_Radarv2/20201124_093821.jpg" width=320> 
+
 
 
 ## How to Start
@@ -19,10 +20,13 @@ I will make a radar with an Arduino, ultrasonic sensor and a servo motor. The ul
   - Edit the pin number where you put the Echo connection on your Arduino to your pin (The preset is pin 11): `const int echoPin=11;`
   - Edit the pin number where you put the Servo pin on your Arduino to your pin (The preset is pin 9): `servo.attach(9);`
   
+<img src="Draw_Radarv2/Skärmbild (3).png" width=500>  
+  
 ### Software
 - [Platform.io](https://platformio.org/install/ide?install=vscode)
+  - Connects computer to the arduino and sends the code to the arduino from the computer
 - [Processing 3](https://processing.org/download/)
-
+  - Collects the data from the arduino (from the ultrasonic sensor and the servo) and projects it on the computer screen
 #### Arduino librarys
 - Arduino.h
   - Connects your computer to the arduino
